@@ -135,7 +135,7 @@ botonAZ.addEventListener("click", ()=>{
 listaPoke.innerHTML=text;
 });
 botonZA.addEventListener("click", ()=> {
-  const arrOrder = ordenarZA(arrNom);
+  const arr = ordenarZA(arrNom);
   let i=0;
   let text = "";
   while(arrOrder[i]){
