@@ -114,25 +114,35 @@ console.log(funPoke(POKEMON.pokemon));
 let arrNom = [];
 for(let i=0; i<POKEMON.pokemon.length; i++){
   arrNom.push(`<div>
-  <div>
-  <p>${POKEMON.pokemon[i].name}<p/>
+    <p>${POKEMON.pokemon[i].name}<p/>
+    <div>
+      <img src =${POKEMON.pokemon[i].img} />
+    </div>
   </div>
-  <div>
-    <img src =${POKEMON.pokemon[i].img} />
-  </div><<
-  
 </div>`);
 }
 const botonAZ = document.getElementById("A-Z");
 const botonZA = document.getElementById("Z-A");
-const ListaOrde = document.getElementById("demo");
+const listaPoke = document.getElementById("root");
 botonAZ.addEventListener("click", ()=>{
-  const resultado = ordenarAZ(arrNom);
-ListaOrde.innerHTML=resultado;
+  const arrOrder = ordenarAZ(arrNom);
+  let i=0;
+  let text = "";
+  while(arrOrder[i]){
+    text += arrOrder[i];
+    i++;
+  }
+listaPoke.innerHTML=text;
 });
 botonZA.addEventListener("click", ()=> {
-  const resultado = ordenarZA(arrNom);
-ListaOrde.innerHTML=resultado; 
+  const arrOrder = ordenarZA(arrNom);
+  let i=0;
+  let text = "";
+  while(arrOrder[i]){
+    text += arrOrder[i];
+    i++;
+  }
+listaPoke.innerHTML=text; 
 });
 
 function ordenarAZ(arr){
@@ -147,6 +157,7 @@ function ordenarZA(arr){
   if(botonZA.value === "Z-A"){
     arr.sort();
     arr.reverse();
+   
   }
  
   return arr;
