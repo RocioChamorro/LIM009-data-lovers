@@ -15,7 +15,7 @@ window.example = example;
 //listaPoke = document.getElementById("root").innerHTML;
 //let listaPoke = '';
 
-/*
+
 const funPoke=(data) => {
   const listaPoke = document.getElementById("root");
   for(let i=0; i< data.length;i++)
@@ -30,8 +30,8 @@ const funPoke=(data) => {
   }
 }
 
-console.log(funPoke(POKEMON.pokemon));
-*/
+//console.log(funPoke(POKEMON.pokemon));
+
 /*
 
   for(let i=0; i< POKEMON.pokemon.length;i++)
@@ -112,6 +112,7 @@ const funPoke=(data) => {
 console.log(funPoke(POKEMON.pokemon));
 */
 
+
 let arrNom = [];
 for(let i=0; i<POKEMON.pokemon.length; i++){
   arrNom.push(`<div>
@@ -124,7 +125,9 @@ for(let i=0; i<POKEMON.pokemon.length; i++){
 }
 const botonAZ = document.getElementById("A-Z");
 const botonZA = document.getElementById("Z-A");
+
 const listaPoke = document.getElementById("root");
+
 botonAZ.addEventListener("click", ()=>{
   const arrOrder = ordenarAZ(arrNom);
   let i=0;
@@ -135,6 +138,7 @@ botonAZ.addEventListener("click", ()=>{
   }
 listaPoke.innerHTML=text;
 });
+
 botonZA.addEventListener("click", ()=> {
   const arr = ordenarZA(arrNom);
   let i=0;
@@ -163,6 +167,8 @@ function ordenarZA(arr){
  
   return arr;
 }
+
+*/
 //ordenar(arrNom);
 //console.log(ordenar(arrNom));
 
@@ -181,3 +187,21 @@ for(let i of arr){
 dataReverse = arr.reverse(arr[i]);
 };
 console.log(dataReverse);
+*/
+
+
+//console.log(POKEMON.pokemon[0].name);
+
+
+/*
+ for(let i of POKEMON.pokemon){
+  return (`<div>
+            <div>
+              <p>${i.name}<p/>
+             </div>
+             <div>
+              ${i.img}
+             </div>
+            </div>`);
+};
+*/
