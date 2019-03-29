@@ -128,6 +128,7 @@ const botonZA = document.getElementById("Z-A");
 
 const listaPoke = document.getElementById("root");
 
+const listaPoke = document.getElementById("root");
 botonAZ.addEventListener("click", ()=>{
   const arrOrder = ordenarAZ(arrNom);
   let i=0;
@@ -168,7 +169,7 @@ function ordenarZA(arr){
   return arr;
 }
 
-*/
+
 //ordenar(arrNom);
 //console.log(ordenar(arrNom));
 
