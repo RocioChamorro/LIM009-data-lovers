@@ -1,9 +1,9 @@
 /* Manejo del DOM */
-
+/*
 const funlist=(data) => {
   const listPoke = document.getElementById("list");
   const arrNomOrder= ordenar(arrNom, "asc");
-  for(let i=0; i< arrNomOrder.length;i++)
+  for(let i=0; i< data.length;i++)
   {
     listPoke.innerHTML += `<option value="${arrNomOrder[i]}">${arrNomOrder[i]}</option>
     `;
@@ -13,27 +13,46 @@ const funlist=(data) => {
 console.log(funlist(POKEMON.pokemon));
 
 
-
-
-
-
-
 const listDespe = document.getElementById("list");
-const respuesta = document.getElementById("parrafo")
-listDespe.addEventListener("click",(e)=>{
+const caracteristicas = document.getElementById("caracteristicas");
+listDespe.addEventListener("change",(e)=>{
 //console.log(e.target.value);
-const prueba2 = POKEMON.pokemon[e.target.value];
- const prueba = `<div>
-  <p>${prueba2.name}</p>  
-  </div>
- `; 
-
-
-
-
-  respuesta.innerHTML=prueba;
+  for(i=0; i< POKEMON.pokemon.length; i++){
+    if(POKEMON.pokemon[i].name === e.target.value){
+      const textCaract =
+      `<div>
+        <p>${POKEMON.pokemon[i].name}</p>  
+      </div>`; 
+      caracteristicas.innerHTML += ` ${textCaract}`;
+    }
+    return;
+  }
 })
+*/
+const arrNomOrder= ordenar(arrNom, "asc");
+const characteristics = document.getElementById("caracteristicas");
+const removable = document.getElementById("list");
+const funtCharact=(arrData )=>{
+  for(let i=0; i< arrData.length;i++){
+    removable.innerHTML += `<option value="${arrData[i]}">${arrData[i]}</option>
+    `;
+    removable.addEventListener("change",(e)=>{
+    if(arrData[i]=== e.target.value ){
+      const textCaract=
+      `<div>
+      <p>${arrData[i]}</p>  
+      </div>`; 
+      characteristics.innerHTML += textCaract;
+      }
+      return arrData;
+    })
+  }
+};
+console.log(funtCharact(arrNomOrder));
+
+
 /*
+
 const charact = document.getElementById ("charact");
 listDespe.addEventListener("click", ()=>{
   const charactFilt = filtrar(arrNom, "list");
