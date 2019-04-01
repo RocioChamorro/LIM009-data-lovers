@@ -130,7 +130,7 @@ const listaPoke = document.getElementById("root");
 
 const listaPoke = document.getElementById("root");
 botonAZ.addEventListener("click", ()=>{
-  const arrOrder = ordenarAZ(arrNom);
+  const arrOrder = ordenar(arrNom, "asc");
   let i=0;
   let text = "";
   while(arrOrder[i]){
@@ -141,16 +141,22 @@ listaPoke.innerHTML=text;
 });
 
 botonZA.addEventListener("click", ()=> {
-  const arr = ordenarZA(arrNom);
+  const arrOrder = ordenar(arrNom, "des");
   let i=0;
   let text = "";
   while(arrOrder[i]){
     text += arrOrder[i];
     i++;
-  }
+  } 
 listaPoke.innerHTML=text; 
 });
 
+
+
+
+
+
+/*
 function ordenarAZ(arr){
 if(botonAZ.value === "A-Z"){
   arr.sort();
@@ -168,10 +174,30 @@ function ordenarZA(arr){
  
   return arr;
 }
-
-
+*/
 //ordenar(arrNom);
 //console.log(ordenar(arrNom));
+const ordenar=(arrOrder, forma)=>{
+  if(forma==="asc"){
+    arrOrder.sort();
+  }
+  else{
+    arrOrder.sort();
+    arrOrder.reverse();
+  }
+  return arrOrder;
+}
+/*
+const filtrar=(arrFilt, id)=>{
+  for(let i=0; i<arrFilt.length; i++){
+  arrFilt[i]=document.getElementById(id).value;
+  }
+  return arrFilt;
+}
+*/
+
+
+
 
 
 
