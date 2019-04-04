@@ -1,4 +1,104 @@
 /* Manejo del DOM */
+
+/* Pintar los nombres de los pokemones*/
+
+
+const dataPokemon = POKEMON.pokemon; // Array de Objetos
+const selectNamesElement = document.getElementById('lista-nombres');
+const selectTipo = document.getElementById('lista-tipo');
+const pokemonesPrimeraPG = document.getElementById("root");
+
+const pintarNombresEnSelect = (arrNombres, elementoDOM,) => {
+  let string = '<option value ="--">Seleccione un pokemon</option>';
+  for(let i = 0; i < arrNombres.length; i++){
+    string += `<option value="${arrNombres[i].Nombre}">${arrNombres[i].Nombre}</option>`
+  }
+   elementoDOM.innerHTML = string;
+}
+pintarNombresEnSelect((obtenerCaracteris(dataPokemon).sort(ordenarAZ)),selectNamesElement);
+
+const pintarTiposEnSelect = (arrNombres, elementoDOM,) => {
+  let string = '<option value ="--">Seleccione un tipo pokemon</option>';
+  for(let i = 0; i < arrNombres.length; i++){
+    string += `<option value="${arrNombres[i]}">${arrNombres[i]}</option>`
+  }
+  elementoDOM.innerHTML = string;
+}
+pintarTiposEnSelect((listaTiposPoke(POKEMON.pokemon)),selectTipo);
+
+const pintarNombresPrimeraPG= (arrNombres, elementoDOM) => {
+let string= "";
+for(let i = 0; i < arrNombres.length; i++){
+  string += `<div>
+  <p>${arrNombres[i].Nombre}</p>
+    <div>
+      <img src=${arrNombres[i].Imagen} />
+    </div>
+    <div>
+      <p>${arrNombres[i].Tipo}</p>
+      <p>${arrNombres[i].Caramelos}</p>
+      <p>${arrNombres[i].Huevo}</p>
+    </div>
+  </div> 
+  `;
+}
+elementoDOM.innerHTML = string;
+}
+pintarNombresPrimeraPG(obtenerCaracteris(dataPokemon),pokemonesPrimeraPG);
+
+const botonAZ = document.getElementById("A-Z");
+const botonZA = document.getElementById("Z-A");
+botonAZ.addEventListener("click", ()=>{
+  pintarNombresPrimeraPG((obtenerCaracteris(dataPokemon).sort(ordenarAZ)),pokemonesPrimeraPG);
+});
+
+botonZA.addEventListener("click", ()=> {
+  pintarNombresPrimeraPG(((obtenerCaracteris(dataPokemon).sort(ordenarAZ)).reverse()),pokemonesPrimeraPG);
+});
+
+selectNamesElement.addEventListener("change",(e)=>{
+  pintarNombresPrimeraPG(filtrarTodos(dataPokemon, "name", e.target.value),pokemonesPrimeraPG);
+});
+
+selectTipo.addEventListener("change",(e)=>{
+  pintarNombresPrimeraPG(filtrarTipos(dataPokemon, "type", e.target.value),pokemonesPrimeraPG);
+});
+
+
+
+
+// const funtCharact=(arrData, idTexto, selec )=>{
+//   for(let i=0; i< arrData.length;i++){
+//     selec.innerHTML += `<option value="${arrData[i]}">${arrData[i]}</option>
+//     `;
+//     selec.addEventListener("change",(e)=>{
+//     if(arrData[i]=== e.target.value ){
+//       const textCaract=
+//       `<div>
+//       <p>${arrData[i]}</p>  
+//       <p><strong>Tipo: </strong>${POKEMON.pokemon[i].type}</p>  
+//       </div>`; 
+//       idTexto.innerHTML = textCaract;
+      
+//       }
+//       return arrData;
+//     })
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 const funlist=(data) => {
   const listPoke = document.getElementById("list");
@@ -29,30 +129,64 @@ listDespe.addEventListener("change",(e)=>{
   }
 })
 */
+// let valueTipo="";
+// for(let i=0; i<arrTipo.length; i++){
+// valueTipo += [arrTipo[i].type][i];
+// }
+// console.log(POKEMON.pokemon);
+
+
+
+/*const arrTipo=['Grass', 'Poison', 'Fire', 'Flying', 'Water', 'Bug', 'Normal', 'Electric', 'Ground', 'Fighting', 'Psychic', 'Rock', 'Ice', 'Ghost', 'Dragon'];
+const arrOrderTipo= ordenar(arrTipo, "asc");
 const arrNomOrder= ordenar(arrNom, "asc");
 const characteristics = document.getElementById("caracteristicas");
+const tipo= document.getElementById("tipo");
 const removable = document.getElementById("list");
-const funtCharact=(arrData )=>{
+const tipoRemovable= document.getElementById("tipoList")
+
+for(let i=0; i< arrData.length;i++){
+  selec.innerHTML += `<option value="${arrData[i]}">${arrData[i]}</option>
+  `;
+const seleccionarPokemonPorNombre= (arr, string) =>{
+if(string === "nombredelPokemon"){
+    `<div>
+    <p>${arr}</p>  
+    </div>`; 
+  }
+  return arr;
+}
+
+selec.addEventListener("change",(e)=>{
+  const 
+  characteristics.innerHTML= seleccionarPokemonPorNombre(arr,e. );
+})
+
+seleccionarPokemonPorNombre(arrData, 'nombredelpokemon')*/
+/*
+const funtCharact=(arrData, idTexto, selec )=>{
   for(let i=0; i< arrData.length;i++){
-    removable.innerHTML += `<option value="${arrData[i]}">${arrData[i]}</option>
+    selec.innerHTML += `<option value="${arrData[i]}">${arrData[i]}</option>
     `;
-    removable.addEventListener("change",(e)=>{
+    selec.addEventListener("change",(e)=>{
     if(arrData[i]=== e.target.value ){
       const textCaract=
       `<div>
       <p>${arrData[i]}</p>  
+      <p><strong>Tipo: </strong>${POKEMON.pokemon[i].type}</p>  
       </div>`; 
-      characteristics.innerHTML += textCaract;
+      idTexto.innerHTML = textCaract;
+      
       }
       return arrData;
     })
   }
 };
-console.log(funtCharact(arrNomOrder));
-
-
-/*
-
+console.log(funtCharact(arrNomOrder, characteristics, removable));
+console.log(funtCharact(arrOrderTipo, tipo, tipoRemovable));
+*/
+// if(POKEMON.pokemon[i].type[0]indexOf>0)
+ /*
 const charact = document.getElementById ("charact");
 listDespe.addEventListener("click", ()=>{
   const charactFilt = filtrar(arrNom, "list");
@@ -63,6 +197,7 @@ listDespe.addEventListener("click", ()=>{
     i++;
   }
  charact.innerHTML+= text;
+ */
 // listaPoke.innerHTML += `<div>
 //       <img src =${data[i].img} />
 //       <div>
@@ -70,7 +205,8 @@ listDespe.addEventListener("click", ()=>{
 //       </div>
 //     </div>
 //  `; 
-});*/
+// });
+
 /*
 const filtrar=(arrFilt, id)=>{
   for(let i=0; i<arrFilt.length; i++){
@@ -79,21 +215,4 @@ const filtrar=(arrFilt, id)=>{
   return arrFilt;
 }
 
-*/
-
-
-//console.log(POKEMON.pokemon);
-
-/*
-console.log(funlist(POKEMON.pokemon));
-
-let arrNom = [];
-for(let i=0; i<POKEMON.pokemon.length; i++){
-  arrNom.push(`<div>
-    <p>${POKEMON.pokemon[i].name}<p/>
-    <div>
-      <img src =${POKEMON.pokemon[i].img} />
-    </div>
-  </div>
-</div>`);
 */

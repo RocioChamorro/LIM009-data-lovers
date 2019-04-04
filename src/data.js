@@ -1,4 +1,77 @@
 /* Manejo de data */
+const obtenerNombres = (arr) => {
+  const arrNombres = [];
+  for(let i = 0; i < arr.length; i++){
+    arrNombres.push(`<div>
+      <p>${arr[i].name}<p/>
+      <div>
+        <img src =${arr[i].img} />
+      </div>
+    </div>`);
+  }
+  return arrNombres;
+};
+
+const obtenerCaracteris = (arr) => {
+  const arrNombres = [];
+  for(let i = 0; i < arr.length; i++){
+    arrNombres.push({Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg});
+  }
+  return arrNombres
+};
+
+function ordenarAZ (a, b) {
+  if (a.Nombre > b.Nombre) {
+    return 1;
+  }
+  if (a.Nombre < b.Nombre) {
+    return -1;
+  }
+  return 0;
+}
+//arr.sort(ordenar);
+
+const filtrarTodos=(arrFilt, propiedad, valorPropiedad)=>{
+  const arrCaracter = [];
+  for(let i=0; i<arrFilt.length; i++){
+    if( arrFilt[i][propiedad] === valorPropiedad){
+      arrCaracter.push({Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg});
+      //arrCaracter.push(arrFilt[i]);
+    }
+  }
+  return arrCaracter;      
+}
+
+const listaTiposPoke=(arr)=>{
+  let arrTipo = [];
+  for(let i = 0; i < arr.length; i++){
+    let NombresTipo = arr[i].type;
+    for(let a = 0; a < NombresTipo.length; a++){
+      if(arrTipo.indexOf(NombresTipo[a])=== -1 ){
+        arrTipo.push(NombresTipo[a]);
+      }
+    }
+  }
+  return arrTipo;
+}
+
+const filtrarTipos=(arrFilt, propiedad, valorPropiedad)=>{
+  const arrCaracter = [];
+  for(let i=0; i<arrFilt.length; i++){
+    let arrtipo = arrFilt[i][propiedad];
+    for(let a=0; a < arrtipo.length; a++){
+    if( arrtipo[a] === valorPropiedad){
+      arrCaracter.push({Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg});
+      //arrCaracter.push(arrFilt[i]);
+      }
+    }    
+  }
+  return arrCaracter;
+}
+
+
+
+
 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
@@ -111,6 +184,7 @@ const funPoke=(data) => {
 }
 console.log(funPoke(POKEMON.pokemon));
 */
+/*
 let arrNom = [];
 for(let i=0; i<POKEMON.pokemon.length; i++){
   arrNom.push(`<div>
@@ -121,31 +195,7 @@ for(let i=0; i<POKEMON.pokemon.length; i++){
   </div>
 </div>`);
 }
-const botonAZ = document.getElementById("A-Z");
-const botonZA = document.getElementById("Z-A");
-const listaPoke = document.getElementById("root");
-botonAZ.addEventListener("click", ()=>{
-  const arrOrder = ordenar(arrNom, "asc");
-  let i=0;
-  let text = "";
-  while(arrOrder[i]){
-    text += arrOrder[i];
-    i++;
-  }
-listaPoke.innerHTML=text;
-});
-botonZA.addEventListener("click", ()=> {
-  const arrOrder = ordenar(arrNom, "des");
-  let i=0;
-  let text = "";
-  while(arrOrder[i]){
-    text += arrOrder[i];
-    i++;
-  } 
-listaPoke.innerHTML=text; 
-});
-
-
+*/
 
 
 
@@ -167,45 +217,7 @@ function ordenarZA(arr){
   }
  
   return arr;
-}
-*/
+}*/
+
 //ordenar(arrNom);
 //console.log(ordenar(arrNom));
-const ordenar=(arrOrder, forma)=>{
-  if(forma==="asc"){
-    arrOrder.sort();
-  }
-  else{
-    arrOrder.sort();
-    arrOrder.reverse();
-  }
-  return arrOrder;
-}
-/*
-const filtrar=(arrFilt, id)=>{
-  for(let i=0; i<arrFilt.length; i++){
-  arrFilt[i]=document.getElementById(id).value;
-  }
-  return arrFilt;
-}
-*/
-
-
-
-
-
-
-
-/*
-let dataOrder = [];
-for(let i of arr){
-dataOrder = arr.sort();
-};
-console.log(dataOrder);
-
-let dataReverse = [];
-for(let i of arr){
-dataReverse = arr.reverse(arr[i]);
-};
-console.log(dataReverse);
-*/
