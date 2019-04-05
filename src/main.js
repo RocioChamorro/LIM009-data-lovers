@@ -8,14 +8,18 @@ const selectNamesElement = document.getElementById('lista-nombres');
 const selectTipo = document.getElementById('lista-tipo');
 const pokemonesPrimeraPG = document.getElementById("root");
 
+
+
 const pintarNombresEnSelect = (arrNombres, elementoDOM,) => {
   let string = '<option value ="--">Seleccione un pokemon</option>';
   for(let i = 0; i < arrNombres.length; i++){
-    string += `<option value="${arrNombres[i].Nombre}">${arrNombres[i].Nombre}</option>`
+    
+    string += `<option value="${arrNombres[i].Nombre}">${arrNombres[i].Nombre}</option>`; 
+    
   }
-   elementoDOM.innerHTML = string;
+  elementoDOM.innerHTML = string;
 }
-pintarNombresEnSelect((obtenerCaracteris(dataPokemon).sort(ordenarAZ)),selectNamesElement);
+pintarNombresEnSelect((nombrePokeEvolucion(dataPokemon,"candy_count").sort(ordenarAZ)),selectNamesElement);
 
 const pintarTiposEnSelect = (arrNombres, elementoDOM,) => {
   let string = '<option value ="--">Seleccione un tipo pokemon</option>';
@@ -24,9 +28,9 @@ const pintarTiposEnSelect = (arrNombres, elementoDOM,) => {
   }
   elementoDOM.innerHTML = string;
 }
-pintarTiposEnSelect((listaTiposPoke(POKEMON.pokemon)),selectTipo);
+pintarTiposEnSelect((listaTiposPoke(dataPokemon)),selectTipo);
 
-const pintarNombresPrimeraPG= (arrNombres, elementoDOM) => {
+const pintarNombresPrimeraPG= (arrNombres, elementoDOM, showCaramelos = false) => {
 let string= "";
 for(let i = 0; i < arrNombres.length; i++){
   string += `<div>
@@ -38,6 +42,7 @@ for(let i = 0; i < arrNombres.length; i++){
       <p>${arrNombres[i].Tipo}</p>
       <p>${arrNombres[i].Caramelos}</p>
       <p>${arrNombres[i].Huevo}</p>
+  ${showCaramelos ? '<p> Número de caramelos: <input type="number" name="caramelos" id="Ncaramelo"/> </p> <button type="button" id="consultar">Consultar</button> <p id="resultado"></p>' : ""}
     </div>
   </div> 
   `;
@@ -46,22 +51,39 @@ elementoDOM.innerHTML = string;
 }
 pintarNombresPrimeraPG(obtenerCaracteris(dataPokemon),pokemonesPrimeraPG);
 
+
 const botonAZ = document.getElementById("A-Z");
 const botonZA = document.getElementById("Z-A");
-botonAZ.addEventListener("click", ()=>{
-  pintarNombresPrimeraPG((obtenerCaracteris(dataPokemon).sort(ordenarAZ)),pokemonesPrimeraPG);
+
+botonAZ.addEventListener("click", () => {
+  const pokemons = obtenerCaracteris(dataPokemon).sort(ordenarAZ);
+  pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
 
-botonZA.addEventListener("click", ()=> {
-  pintarNombresPrimeraPG(((obtenerCaracteris(dataPokemon).sort(ordenarAZ)).reverse()),pokemonesPrimeraPG);
+botonZA.addEventListener("click", () => {
+  const pokemons = (obtenerCaracteris(dataPokemon).sort(ordenarAZ)).reverse();
+  pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
+
 
 selectNamesElement.addEventListener("change",(e)=>{
-  pintarNombresPrimeraPG(filtrarTodos(dataPokemon, "name", e.target.value),pokemonesPrimeraPG);
+  const pokemons = filtrarTodos(dataPokemon, "name", e.target.value)
+  pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG, true);
+  const consultar = document.getElementById("consultar");
+  const Ncaramelo = document.getElementById("Ncaramelo");
+  const resultado = document.getElementById("resultado");
+  const selectNamesValue = document.getElementById('lista-nombres').value;
+  consultar.addEventListener("click", () => {
+    const ValueNcaram = parseInt(Ncaramelo.value);
+    const Total = operacion(dataPokemon, ValueNcaram, selectNamesValue);
+    resultado.innerHTML= Total;
+  })
 });
 
+
 selectTipo.addEventListener("change",(e)=>{
-  pintarNombresPrimeraPG(filtrarTipos(dataPokemon, "type", e.target.value),pokemonesPrimeraPG);
+  const pokemons = filtrarTipos(dataPokemon, "type", e.target.value)
+  pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
 
 

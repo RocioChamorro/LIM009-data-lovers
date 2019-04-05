@@ -1,17 +1,4 @@
 /* Manejo de data */
-const obtenerNombres = (arr) => {
-  const arrNombres = [];
-  for(let i = 0; i < arr.length; i++){
-    arrNombres.push(`<div>
-      <p>${arr[i].name}<p/>
-      <div>
-        <img src =${arr[i].img} />
-      </div>
-    </div>`);
-  }
-  return arrNombres;
-};
-
 const obtenerCaracteris = (arr) => {
   const arrNombres = [];
   for(let i = 0; i < arr.length; i++){
@@ -19,6 +6,28 @@ const obtenerCaracteris = (arr) => {
   }
   return arrNombres
 };
+
+const nombrePokeEvolucion = (arr,propiedad) => {
+  const arrNombres = [];
+  for(let i = 0; i < arr.length; i++){
+    if(typeof(arr[i][propiedad]) !== "undefined")
+    arrNombres.push({Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg});
+  }
+  return arrNombres
+};
+
+// const sortBy = (arr, key, order = "asc") => {
+//   if (order != "asc" && order != "desc" ) {
+//     throw new Error("invalid order")
+//   }
+
+//   const comparators = {
+//     asc: (a, b) => a[key] - b[key],
+//     desc: (a, b) => b[key] - a[key]
+//   }
+
+//   return arr.sort(comparators[order])
+// }
 
 function ordenarAZ (a, b) {
   if (a.Nombre > b.Nombre) {
@@ -29,7 +38,6 @@ function ordenarAZ (a, b) {
   }
   return 0;
 }
-//arr.sort(ordenar);
 
 const filtrarTodos=(arrFilt, propiedad, valorPropiedad)=>{
   const arrCaracter = [];
@@ -69,8 +77,15 @@ const filtrarTipos=(arrFilt, propiedad, valorPropiedad)=>{
   return arrCaracter;
 }
 
-
-
+const operacion=(arr, num, ValueSelect)=>{
+  let lack;
+  for(let i=0; i<arr.length; i++){
+    if(ValueSelect === arr[i].name){
+       lack= arr[i].candy_count - num;
+    } 
+  }
+  return lack; 
+}
 
 
 // esta es una función de ejemplo
