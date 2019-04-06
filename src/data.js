@@ -76,14 +76,19 @@ const operacion=(arr, num, ValueSelect)=>{
 
 const imgEvolucion=(arr, ValueSelect)=>{
   let NomeEvol;
+  let arrname;
   for(let i=0; i<arr.length; i++){
-    let arrname= arr[i].next_evolution;
-    if(ValueSelect === arrname){
-      NomeEvol= arrname[0].name;
+    if(ValueSelect === arr[i].name){
+      arrname= arr[i].next_evolution;
+      for(let a=0; a<1; a++){
+        NomeEvol= arrname[a].name;
+      }
     }
-  } 
+  }
   return NomeEvol;
-}
+} 
+ 
+
    
 
 // esta es una función de ejemplo

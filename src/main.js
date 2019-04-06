@@ -39,10 +39,10 @@ for(let i = 0; i < arrNombres.length; i++){
       <p><strong>Tipo: </strong>${arrNombres[i].Tipo}</p>
       <p><strong>Caramelos: </strong>${arrNombres[i].Caramelos}</p>
       <p><strong>Huevo: </strong>${arrNombres[i].Huevo}</p>
-  ${showCaramelos ? '<p> Número de caramelos: <input type="number" name="caramelos" id="Ncaramelo"/> </p>' +  
-    '<button type="button" id="consultar">Consultar</button>' + 
-    '<p id="resultado"></p>'+
-    '<p></p>': ""}
+  ${showCaramelos ? '<p> Ingresa los números de caramelos que tienes: <input type="number" name="caramelos" id="Ncaramelo" min="0" max="100"/> </p>' +  
+  '<button type="button" id="consultar">Consultar</button>' + 
+    '<p id="resultado"></p>': ""}
+    
     </div>
   </div> 
   `;
@@ -54,17 +54,26 @@ pintarNombresPrimeraPG(obtenerCaracteris(dataPokemon),pokemonesPrimeraPG);
 const botonAZ = document.getElementById("A-Z");
 const botonZA = document.getElementById("Z-A");
 
+const resetSelect = (element) => {
+  element.value="--";
+}
+
 botonAZ.addEventListener("click", () => {
+  resetSelect(selectTipo);
+  resetSelect(selectNamesElement);
   const pokemons = obtenerCaracteris(dataPokemon).sort(ordenarAZ);
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
 
 botonZA.addEventListener("click", () => {
+  resetSelect(selectTipo);
+  resetSelect(selectNamesElement);
   const pokemons = (obtenerCaracteris(dataPokemon).sort(ordenarAZ)).reverse();
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
 
 selectNamesElement.addEventListener("change",(e)=>{
+  resetSelect(selectTipo);
   const pokemons = filtrarTodos(dataPokemon, "name", e.target.value)
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG, true);
   const consultar = document.getElementById("consultar");
@@ -75,11 +84,12 @@ selectNamesElement.addEventListener("change",(e)=>{
     const ValueNcaram = parseInt(Ncaramelo.value);
     const Total = operacion(dataPokemon, ValueNcaram, selectNamesValue);
     const NomeEvolu = imgEvolucion(dataPokemon, selectNamesValue);
-    resultado.innerHTML= `Te falta ${Total} caramelos para que evolucione a ${NomeEvolu}`;
+    resultado.innerHTML= `Te falta ${Total} caramelos para que evolucione a <strong>${NomeEvolu}</strong>`;
   })
 });
 
 selectTipo.addEventListener("change",(e)=>{
+  resetSelect(selectNamesElement);
   const pokemons = filtrarTipos(dataPokemon, "type", e.target.value)
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
