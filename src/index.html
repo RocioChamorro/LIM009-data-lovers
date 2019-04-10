@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-        <!-- <div id="charact"></div>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <img src="img/ash-ketchum-pokemon.jpg" alt="portada">
+  </header>
+  <!-- <div id="charact"></div>
         <p id="datos"></p> -->
-      <button type = "button" value= "A-Z" id= "A-Z">Ordenar A-Z</button>&nbsp;&nbsp;&nbsp;
-      <button type = "button" value= "Z-A" id= "Z-A">Ordenar Z-A</button>
-      
-    
+  <section class="options">
+    <button type="button" value="A-Z" id="A-Z">Ordenar A-Z</button>&nbsp;&nbsp;&nbsp;
+    <button type="button" value="Z-A" id="Z-A">Ordenar Z-A</button>
+
+
     <select id="lista-tipo"></select>
-    <p>Calculadora de evolución de tu POKEMON</p>
     <select id="lista-nombres">
       <!-- <p> Número de caramelos que tienes: <input type="number" name="caramelo" id="caramelo"/> </p> -->
     </select>
-    <div id= "pokemones"></div>
-    <div id= "caracteristicas"></div>
-    <div id= "tipo"></div>
-    <p id="demo"></p>
-    <div id="root">
-      
-      
-    </div>
-  
-    <script src="./data/pokemon/pokemon.js"></script>
-    
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+  </section>
+
+  <div class="flex-conteiner" id="root"></div>
+
+
+  </div>
+
+  <script src="./data/pokemon/pokemon.js"></script>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
