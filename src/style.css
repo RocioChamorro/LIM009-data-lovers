@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+    padding:0px;
+    margin: 0px;
+    font-family: initial;
+}
+body{
+    background-color:rgba(0, 162, 255, 0.637);
+}
+
+header{
+    width: 100%;
+    height: 500px;
+    border-radius: 4px;
+   
+}
+header img{
+    width: 100%;
+    height: 500px;
+}
+
+p{
+    color: white;
+    text-align: justify;
+}
+
+
+.options{
+    background-color: rgba(0, 255, 255, 0.918);
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    display:flex;
+    box-sizing: border-box;
+
+}
+select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 2px solid rgb(51, 206, 51);
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+} 
+
+button {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px;
+    background-color: rgb(51, 206, 51);
+    color: white;
+    border: solid;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.flex-conteiner {
+    margin-top: 15px;
+    padding: 2em 1em;
+    background-color: teal;
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    
+  }
+  
+  .flex-data {
+    
+    background-color: turquoise;
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 20px;
+    border-radius: 4px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  } 
+
+  .candys {
+
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 20px;
+    
+  }
+.candys-number{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 2px solid rgb(51, 206, 51);
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.candys-button{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px;
+    background-color: rgb(51, 206, 51);
+    color: white;
+    border: solid;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+
+@media(min-width: 360px){
+    body{
+        background-color:rgba(0, 162, 255, 0.637);
+        flex-direction: column;
+    }
+    header{
+        background-size: 100%;
+    }
+    .option{
+        flex-direction: column;
+    }
+    }
+@media(min-width: 768px){
+    body{
+        background-color:rgba(0, 162, 255, 0.637);
+        flex-direction: column;
+
+    }
+}
+@media(min-width: 1200px){
+    body{
+        background-color:rgba(0, 162, 255, 0.637);
+        flex-direction: column;
+    }
+    .option{
+        display: block;
+        position: absolute;
+    }
+}
