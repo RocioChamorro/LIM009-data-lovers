@@ -1,91 +1,113 @@
 /* Manejo de data */
 const obtenerCaracteris = (arr) => {
   const arrNombres = [];
-  for(let i = 0; i < arr.length; i++){
-    arrNombres.push({Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg});
+  for (let i = 0; i < arr.length; i++) {
+    arrNombres.push({ Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg });
   }
-  return arrNombres
+  return arrNombres;
 };
 
-const nombrePokeEvolucion = (arr,propiedad) => {
+const nombrePokeEvolucion = (arr, propiedad) => {
   const arrNombres = [];
-  for(let i = 0; i < arr.length; i++){
-    if(typeof(arr[i][propiedad]) !== "undefined")
-    arrNombres.push({Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg});
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof (arr[i][propiedad]) !== 'undefined')
+      arrNombres.push({ Nombre: arr[i].name, Imagen: arr[i].img, Tipo: arr[i].type, Caramelos: arr[i].candy_count, Huevo: arr[i].egg });
   }
-  return arrNombres
+  return arrNombres;
 };
 
-function ordenarAZ (a, b) {
-  if (a.Nombre > b.Nombre) {
+const ordenarAZ = (primer, secund) => {
+  if (primer.Nombre.toLowerCase() > secund.Nombre.toLowerCase()) {
     return 1;
-  }
-  if (a.Nombre < b.Nombre) {
+  } else if (primer.Nombre.toLowerCase() < secund.Nombre.toLowerCase()) {
     return -1;
+  } else {
+    return 0;
   }
-  return 0;
-}
+};
 
-const filtrarTodos=(arrFilt, propiedad, valorPropiedad)=>{
+const ordenando = (arr, dentroSort) => {
+  let ordenadoAZ;
+  let ordenadoZA;
+  if (dentroSort === 'ASCENDENTE') {
+    ordenadoAZ = [...arr].sort(ordenarAZ);
+    return ordenadoAZ;
+  } else if (dentroSort === 'DESCENDENTE') {
+    ordenadoAZ = [...arr].sort(ordenarAZ);
+    ordenadoZA = ordenadoAZ.reverse();
+    return ordenadoZA;
+  }
+};
+
+const filtrarTipos = (arrFilt, propiedad, valorPropiedad) => {
   const arrCaracter = [];
-  for(let i=0; i<arrFilt.length; i++){
-    if( arrFilt[i][propiedad] === valorPropiedad){
-      arrCaracter.push({Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg});
-      //arrCaracter.push(arrFilt[i]);
+  for (let i = 0; i < arrFilt.length; i++) {
+    let arrtipo = arrFilt[i][propiedad];
+    for (let j = 0; j < arrtipo.length; j++) {
+      if (arrtipo[j] === valorPropiedad) {
+        arrCaracter.push({ Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg });
+      }
     }
   }
-  return arrCaracter;      
-}
+  return arrCaracter;
+};
 
-const listaTiposPoke=(arr)=>{
+const filtrarTodos = (arrFilt, propiedad, valorPropiedad) => {
+  const arrCaracter = [];
+  for (let i = 0; i < arrFilt.length; i++) {
+    if (arrFilt[i][propiedad] === valorPropiedad) {
+      arrCaracter.push({ Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg });
+      // arrCaracter.push(arrFilt[i]);
+    }
+  }
+  return arrCaracter;
+};
+
+const listaTiposPoke = (arr) => {
   let arrTipo = [];
-  for(let i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     let NombresTipo = arr[i].type;
-    for(let a = 0; a < NombresTipo.length; a++){
-      if(arrTipo.indexOf(NombresTipo[a])=== -1 ){
-        arrTipo.push(NombresTipo[a]);
+    for (let j = 0; j < NombresTipo.length; j++) {
+      if (arrTipo.indexOf(NombresTipo[j]) === -1) {
+        arrTipo.push(NombresTipo[j]);
       }
     }
   }
   return arrTipo;
-}
+};
 
-const filtrarTipos=(arrFilt, propiedad, valorPropiedad)=>{
-  const arrCaracter = [];
-  for(let i=0; i<arrFilt.length; i++){
-    let arrtipo = arrFilt[i][propiedad];
-    for(let a=0; a < arrtipo.length; a++){
-    if( arrtipo[a] === valorPropiedad){
-      arrCaracter.push({Nombre: arrFilt[i].name, Imagen: arrFilt[i].img, Tipo: arrFilt[i].type, Caramelos: arrFilt[i].candy_count, Huevo: arrFilt[i].egg});
-      //arrCaracter.push(arrFilt[i]);
-      }
-    }    
+const operacion = (arr, num, ValueSelect) => {
+  let lack = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (ValueSelect === arr[i].name) {
+      lack = arr[i].candy_count - num;
+    }
   }
-  return arrCaracter;
-}
+  return lack;
+};
 
-const operacion=(arr, num, ValueSelect)=>{
-  let lack;
-  for(let i=0; i<arr.length; i++){
-    if(ValueSelect === arr[i].name){
-       lack= arr[i].candy_count - num;
-    } 
-  }
-  return lack; 
-}
-
-const imgEvolucion=(arr, ValueSelect)=>{
+const NameEvolucion = (arr, ValueSelect) => {
   let NomeEvol;
   let arrname;
-  for(let i=0; i<arr.length; i++){
-    if(ValueSelect === arr[i].name){
-      arrname= arr[i].next_evolution;
-      for(let a=0; a<1; a++){
-        NomeEvol= arrname[a].name;
+  for (let i = 0; i < arr.length; i++) {
+    if (ValueSelect === arr[i].name) {
+      arrname = arr[i].next_evolution;
+      for (let j = 0; j < 1; j++) {
+        NomeEvol = arrname[j].name;
       }
     }
   }
   return NomeEvol;
-} 
- 
+};
+
+window.Pokemon = {
+  obtenerCaracteris: obtenerCaracteris,
+  nombrePokeEvolucion: nombrePokeEvolucion,
+  filtrarTodos: filtrarTodos,
+  listaTiposPoke: listaTiposPoke,
+  filtrarTipos: filtrarTipos,
+  operacion: operacion,
+  NameEvolucion: NameEvolucion,
+  ordenando: ordenando
+};
 
