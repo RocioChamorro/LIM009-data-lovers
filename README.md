@@ -1,4 +1,48 @@
 # Data Lovers
+Esta pagina esta realizada pensando en todas las personas a las que les gusta el tema de POKEMON ya sean fanaticos, aficionados o publico en general y quieran a traves de nuestra web conocer mas acerca de los tipos de pokemones y sus caracteristicas.
+
+el objetivo de la pagina es que todos los fanaticos puedan acceder a la informacion sobre las caracteristicas de sus pokemones favoritos de una manera facil y practica donde no solo puenda aclarar sus dudas si no tambien aprender mas acerca de los POKEMON, pudiendo acceder a ella en su tiempo libre o cuando requieran la informacion.
+
+Para usar la pagina de POKEMON la mayoria de usuarios indico que desea ver las caracteristicas de los POKEMON a traves de un filtro, dentro del cual seleccionarion 3 opciones siendo la principal el TIPO, la EVOLUCION y el NOMBRE del pokemón respectivamente.
+
+### Historias de Usuario
+
+* Historia de Usuario 1
+
+YO COMO fanatico pokemon
+QUIERO filtrar los pokemones por Tipo de pokemon
+PARA ubicar mas facilmente a los pokemon
+
+
+* Historia de Usuario 2
+
+YO COMO fanatica pokemon
+QUIERO buscar los pokemon por evolucion
+PARA saber cuantos caramelos necesito para evolucionar.
+
+* Historia de Usuario 3
+
+YO COMO fanatico pokemon
+QUIERO una pagina de facil acceso con los poderes y caracteristicas de los pokemon 
+PARA mis ratos libres de diversion y conocer mas de ellos.
+
+### Testeos de usabilidad
+![enter image description here](http://i63.tinypic.com/209ggsj.jpg)
+![](http://i67.tinypic.com/120mmbn.jpg)
+
+### Diseño de la Interfaz de Usuario
+
+ * Prototipo de baja fidelidad.
+![baja](http://i67.tinypic.com/35l6dtu.jpg)
+### Implementación de la Interfaz de Usuario
+* interfaz es un card:
+![](http://i67.tinypic.com/34pf029.jpg)
+
+* El usuario puede filtrar y ordenar la data:
+![enter image description here](http://i65.tinypic.com/292qnth.jpg)
+* El usuario puede hacer un calculo de la data:
+![
+](http://i63.tinypic.com/zlp45c.jpg)
 
 ## Índice
 
