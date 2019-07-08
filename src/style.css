@@ -16,7 +16,7 @@ header{
 }
 header img{
     width: 100%;
-    height: 500px;
+    height: 100vh;
 }
 
 p{
@@ -41,28 +41,40 @@ select {
     padding: 12px 20px;
     margin: 8px;
     box-sizing: border-box;
-    border: 2px solid rgb(51, 206, 51);
+    border: solid rgb(51, 206, 51);
     border-radius: 4px;
     font-size: 15px;
     cursor: pointer;
+    background-color: white;
+    opacity: 0,6;
 } 
 
 button {
     width: 15%;
     padding: 12px 20px;
     margin: 8px;
-    background-color: rgb(51, 206, 51);
-    color: white;
+    background-color: white;
     border: solid;
+    border-color: rgb(51, 206, 51);
     border-radius: 4px;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.6s;
+    opacity: 0.9;
+}
+    .btntag {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    } 
+button:hover {
+    background-color: rgb(51, 206, 51);
+    color: white;
 }
 
 .flex-conteiner {
     margin-top: 15px;
     padding: 2em 1em;
-    background-color: teal;
+    background-color: paleturquoise;
     display: flex;
     flex: auto;
     flex-wrap: wrap;
@@ -73,7 +85,7 @@ button {
   }
   
   .flex-data {
-    
+    filter: drop-shadow(0 2px 8px white);
     background-color: turquoise;
     width: 200px;
     height: 300px;

@@ -68,7 +68,9 @@ botonZA.addEventListener('click', () => {
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
 });
 
+
 selectNamesElement.addEventListener('change', (element) => {
+  location.href="#root";
   resetSelect(selectTipo);
   const pokemons = Pokemon.filtrarTodos(dataPokemon, 'name', element.target.value);
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG, true);
@@ -85,6 +87,7 @@ selectNamesElement.addEventListener('change', (element) => {
 });
 
 selectTipo.addEventListener('change', (element) => {
+  location.href="#root";
   resetSelect(selectNamesElement);
   const pokemons = Pokemon.filtrarTipos(dataPokemon, 'type', element.target.value);
   pintarNombresPrimeraPG(pokemons, pokemonesPrimeraPG);
