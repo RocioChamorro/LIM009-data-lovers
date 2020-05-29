@@ -1,0 +1,68 @@
+------------------------------------------------------------------------------------------
+
+POKEMON
+
+Esta pagina esta realizada pensando en todas las personas a las que les gusta el tema de POKEMON ya sean fanaticos, aficionados o publico en general y quieran a traves de nuestra web conocer mas acerca de los tipos de pokemones y sus caracteristicas.
+
+------
+
+Para usar la pagina de POKEMON la mayoria de usuarios indico que desea ver las caracteristicas de los POKEMON a traves de un filtro, dentro del cual seleccionarion 3 opciones siendo la principal el TIPO, la EVOLUCION y el NOMBRE del pokemón respectivamente.
+
+
+-----
+
+el objetivo de la pagina es que todos los fanaticos puedan acceder a la informacion sobre las caracteristicas de sus pokemones favoritos de una manera facil y practica donde no solo puenda aclarar sus dudas si no tambien aprender mas acerca de los POKEMON, pudiendo acceder a ella en su tiempo libre o cuando requieran la informacion.
+
+------
+
+Decisiones de diseño
+El diseño de la pagina fue pensado en un color ....
+
+
+
+HISTORIA DE USUARIO 1
+
+YO COMO fanatico pokemon
+
+QUIERO filtrar los pokemones por Tipo de pokemon
+
+PARA ubicar mas facilmente a los pokemon
+
+
+HISOTRIA DE USUARIO 2
+
+YO COMO fanatica pokemon
+
+QUIERO buscar los pokemon por evolucion
+
+PARA saber cuantos caramelos necesito para evolucionar.
+
+
+HISTORIA DE USUARIO 3 
+
+YO COMO fanatico pokemon
+
+QUIERO una pagina de facil acceso con los poderes y caracteristicas de los pokemon 
+
+PARA mis ratos libres de diversion y conocer mas de ellos.
+
+
+******
+
+Crear productos que sigan los principios básicos de diseño visual y las heurísticas de usabilidad.
+Manipular arreglos (arrays) y objetos (objects).
+Manipular el DOM (agregar elementos dinámicamente basados en la data).
+Manejar eventos del DOM para permitir interacción con el usuario (filtrado, ordenado, ...).
+Mostrar la data en una interfaz: puede ser un card, una tabla, una lista, etc.
+Permitir al usuario filtrar y ordenar la data.
+Calcular estadísticas de la colección (o subcolección) como media aritmética, máximo y/o mínimo de algún atributo numérico, o contar cuántas veces aparece un determinado valor, por ejemplo.
+Ser responsive, es decir, debe visualizarse sin problemas desde distintos tamaños de pantallas: móviles, tablets y desktops.
+Es importante que tu interfaz, a pesar de ser una versión mínima de tu ideal, siga los fundamentos de visual design.
+
+
+manipulación de datos a través de arreglos y objetos.
+obtener, procesar y manipular datos
+
+1. filtrar recibiría la data, 
+ ordenar recibe tres parámetros.
+ calcular, n
